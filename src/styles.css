@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+body
+{    
+    font-family: Arial, Helvetica, sans-serif;    
+}
+
+a{   
+     text-decoration: none;
+     font-weight: bold;
+     color:#333;
+}
+
+
+*{
+    transition: 0.5s;
+    border-radius: 5px;
+    user-select: none;
+    
+}
+*:hover{
+    transition: 0.5s;
+}
+
+input, button { outline: none;  outline-color: transparent;
+}
+input{ border-radius: 5px;    box-sizing: border-box;    border: 1px solid #ccc;
+    user-select:auto;
+}
+button{border: 1px solid #EEE; background-color:#EEE; }

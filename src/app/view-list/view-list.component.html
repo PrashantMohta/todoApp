@@ -1,0 +1,22 @@
+
+<div *ngFor="let li of this.storage.TaskList">
+<a *ngIf="li!=undefined" (click)="Hv.Hoverlink(['/task/',li.id])" >
+  <div class="item item__hover _h">
+      <button class="remove remove__hover _h right" (click)="taskRemove($event,li.id)">X</button>
+    <div class="name"> {{li.name | titlecase}} </div>
+    <div class="timestamp"> {{li.timestamp | date:"short" }}</div>
+  </div>
+</a>
+</div>
+<a  (click)="Hv.Hoverlink(['/newtask'])">
+  <div class="hint item__hover _h">
+    <div class="addtask addtask__hover _h">+</div>
+  </div>
+</a>
+
+
+<div class="hint" *ngIf="isListEmpty()">
+    <div class="empty">Nothing Here!</div>
+    <div class="subtext">Add some tasks to this list, using the "+" or the "New" Button</div>
+</div>
+    

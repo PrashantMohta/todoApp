@@ -1,0 +1,18 @@
+<!--[routerLink]="newItemRoute" [routerLink]="backRoute" -->
+<div >
+  <div id="navbar">
+    <h1><a routerLink="/list"  class="box left box__hover _h">{{ title}}</a></h1>
+    <div class="contbox right">
+    <a  (click)="Hv.Hoverlink([backRoute])"  class="box left box__hover _h" *ngIf="showBackNav" >Back</a>
+    <a  (click)="Hv.Hoverlink([newItemRoute])" class="box right box__hover _h" *ngIf="showNewNav" >New</a>
+    <a  (click)="save();Hv.Hoverlink([backRoute])" class="box right box__hover _h" *ngIf="showSaveNav" #Save>Save</a>
+   </div>
+  </div>
+  <div  id="view" (keypress)="Enter($event)">
+  <router-outlet></router-outlet>
+  </div>
+  <div class="toast bottom" *ngIf="this.storage.showUndoMessage" >
+    <div class="message">{{this.storage.undoMessage | titlecase}}</div>
+    <div *ngIf="!this.storage.undoDone" class="toastbutton toastbutton__hover _h " (click)="this.storage.doUndo()" >Undo</div>
+  </div>
+</div>

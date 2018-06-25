@@ -1,0 +1,17 @@
+<div class="taskname">{{this.storage.TaskList[this.location].name | titlecase}}</div>
+<div class="timestamp">{{ this.storage.TaskList[this.location].timestamp | date:"longDate"}} at {{ this.storage.TaskList[this.location].timestamp | date:"shortTime"}}</div>
+<div class="listitem listitem__hover _h" *ngFor="let Titem of this.storage.TaskList[this.location].taskItemList; let i=index" >
+  <div  [ngClass]="{'complete complete__hover _h':Titem.complete,'incomplete':!Titem.complete}" > 
+      <input type="checkbox" class="checkbox checkbox__hover _h left" [(ngModel)]="Titem.complete" (change)="updateCheckbox()"> 
+      <div class="task" (click)="Titem.complete=!Titem.complete;updateCheckbox()">
+          <button class="remove remove__hover _h right" (click)="itemRemove(i)">X</button>
+          <span >{{Titem.name | titlecase}}</span>
+      </div> 
+  </div>
+</div>
+
+<div class="hint" *ngIf="this.storage.TaskList[this.location].taskItemList.length==0">
+<div class="empty">Nothing Here!</div>
+<div class="subtext">Add some items to this list, using the "New" Button</div>
+</div>
+
